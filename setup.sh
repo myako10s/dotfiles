@@ -3,7 +3,7 @@
 set -e
 OS="$(uname -s)"
 DOT_DIRECTORY="${HOME}/dotfiles"
-DOT_TARBALL="https://github.com/myako10s/dotfiles/tarball/master"
+DOT_TARBALL="https://github.com/myako10s/dotfiles/tarball/main"
 REMOTE_URL="https://github.com/myako10s/dotfiles.git"
 
 has() {
