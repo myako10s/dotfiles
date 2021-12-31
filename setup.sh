@@ -59,14 +59,30 @@ link_files() {
   do
     # If you have ignore files, add file/directory name here
     [[ ${f} = ".git" ]] && continue
-    #[[ ${f} = ".gitignore" ]] && continue
+    [[ ${f} = ".gitignore" ]] && continue
 
-    # Force remove the vim directory if it's already there
+    # Force remove file/directory if it's already there
     [ -n "${OVERWRITE}" -a -e ${HOME}/${f} ] && rm -f ${HOME}/${f}
     if [ ! -e ${HOME}/${f} ]; then
 
-      ln -sfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
+      ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
     fi
+  done
+
+  # Other files that do not start with .??*
+  # manually entry below with "src dest" format
+  otherfiles=(
+    "git .config/git" # git
+  )
+
+  for target in "${otherfiles[@]}"
+  do
+    src_dest=(${target})
+    src=${src_dest[0]}
+    dest=${src_dest[1]}
+    [ -n "${OVERWRITE}" -a -e ${HOME}/${dest} ] && rm -f ${HOME}/${dest}
+    mkdir -p $(dirname ${HOME}/${dest})
+    ln -snfv ${DOT_DIRECTORY}/${src} ${HOME}/${dest}
   done
 
   echo $(tput setaf 2)Deploy dotfiles complete!. ✔︎$(tput sgr0)
