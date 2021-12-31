@@ -69,15 +69,15 @@ link_files() {
     fi
   done
 
-  # Other files that do not start with .??*
-  # manually entry below with "src dest" format
+  # Other files that do not start with .??*,
+  # add file/directory name here with "src dest" format
   otherfiles=(
     "git .config/git" # git
   )
 
-  for target in "${otherfiles[@]}"
+  for src_dest_pair in "${otherfiles[@]}"
   do
-    src_dest=(${target})
+    src_dest=(${src_dest_pair})
     src=${src_dest[0]}
     dest=${src_dest[1]}
     [ -n "${OVERWRITE}" -a -e ${HOME}/${dest} ] && rm -f ${HOME}/${dest}
