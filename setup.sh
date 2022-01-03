@@ -56,6 +56,7 @@ fi
 
 cd ${DOT_DIRECTORY}
 source ./lib/brew.sh
+source ./lib/asdf.sh
 
 install() {
   # ignore shell execution error temporarily
@@ -71,7 +72,7 @@ install() {
       ;;
   esac
 
-  #run_xxx
+  run_asdf
 
   echo "$(tput setaf 2)Install complete!. ✔︎$(tput sgr0)"
 }

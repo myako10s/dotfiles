@@ -26,13 +26,7 @@ Clone this repository into `~/dotfiles`.
 git clone https://github.com/myako10s/dotfiles.git ~/dotfiles
 ```
 
-## 2. Install apps
-
-```sh
-bash ~/dotfiles/setup.sh install
-```
-
-## 3. Deploy dotfiles
+## 2. Deploy dotfiles
 
 Do not override existing dotfiles.
 
@@ -44,6 +38,12 @@ Force override existing dotfiles.
 
 ```sh
 bash ~/dotfiles/setup.sh -f deploy
+```
+
+## 3. Install apps
+
+```sh
+bash ~/dotfiles/setup.sh install
 ```
 
 ## 4. Update Brewfile
