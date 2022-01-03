@@ -1,19 +1,53 @@
 # dotfiles
 
+## 0. Prerequisites
+
+### Xcode
+
+Install [Xcode](https://developer.apple.com/download/more/#). Or, install Xcode Command-Line Tools with below.
+
+```sh
+xcode-select --install
+```
+
+### Homebrew
+
+Install Homebrew. Check [here](https://brew.sh/index_ja) for the latest installation procedure.
+
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 ## 1. Git Clone
 
-Clone this repository into `~/dotfiles`
+Clone this repository into `~/dotfiles`.
 
 ```sh
 git clone https://github.com/myako10s/dotfiles.git ~/dotfiles
 ```
 
-## 2. Deploy dotfiles
+## 2. Install apps
 
 ```sh
-# Do not override existing dotfiles
-bash ~/dotfiles/setup.sh deploy
+bash ~/dotfiles/setup.sh install
+```
 
-# Force override existing dotfiles
+## 3. Deploy dotfiles
+
+Do not override existing dotfiles.
+
+```sh
+bash ~/dotfiles/setup.sh deploy
+```
+
+Force override existing dotfiles.
+
+```sh
 bash ~/dotfiles/setup.sh -f deploy
+```
+
+## 4. Update Brewfile
+
+```sh
+bash ~/dotfiles/setup.sh update
 ```

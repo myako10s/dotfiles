@@ -16,7 +16,9 @@ usage() {
 Usage:
   $name [arguments] [command]
 Commands:
-  deploy
+  deploy        deploy dotfiles
+  install       install apps
+  update        update Brewfile
 Arguments:
   -f $(tput setaf 1)** warning **$(tput sgr0) Overwrite dotfiles.
   -h Print help (this message)
@@ -53,6 +55,31 @@ if [ ! -d ${DOT_DIRECTORY} ]; then
 fi
 
 cd ${DOT_DIRECTORY}
+source ./lib/brew.sh
+
+install() {
+  # ignore shell execution error temporarily
+  set +e
+
+  case ${OSTYPE} in
+    darwin*)
+      run_brew
+      ;;
+    *)
+      echo $(tput setaf 1)Working only OSX$(tput sgr0)
+      exit 1
+      ;;
+  esac
+
+  #run_xxx
+
+  echo "$(tput setaf 2)Install complete!. ✔︎$(tput sgr0)"
+}
+
+update() {
+  brew bundle dump -f
+  echo "$(tput setaf 2)Update Brewfile complete!. ✔︎$(tput sgr0)"
+}
 
 link_files() {
   for f in .??*
@@ -94,6 +121,12 @@ command=$1
 case $command in
   deploy)
     link_files
+    ;;
+  install)
+    install
+    ;;
+  update)
+    update
     ;;
   *)
     usage
