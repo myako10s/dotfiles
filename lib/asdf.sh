@@ -1,11 +1,5 @@
 #!/bin/bash
 
-path_remove () {
-  export PATH=`echo -n $PATH \
-    | awk -v RS=: -v ORS=: '$0 != "'$1'"' \
-    | sed 's/:$//'`
-}
-
 run_asdf() {
   if has "asdf"; then
     echo "$(tput setaf 2)Already installed asdf ✔︎$(tput sgr0)"
@@ -21,10 +15,15 @@ run_asdf() {
   if has "asdf"; then
     if [ -e ${HOME}/.tool-versions ]; then
       echo "Installing asdf packages..."
-      # avoid macos-ld-symbols-not-found-for-architecture-x86_64-1245 issue.
+
+      # avoid macos-ld-symbols-not-found-for-architecture-x86_64-1245 issue
       path_remove $(brew --prefix binutils)/bin
+
       asdf install
       [[ $? ]] && echo "$(tput setaf 2)Install packages complete. ✔︎$(tput sgr0)"
+
+      # restore binutils path
+      [ -e $(brew --prefix binutils)/bin ] && path_prepend $(brew --prefix binutils)/bin
     else
       echo "You need install packages manualy."
     fi

@@ -55,6 +55,7 @@ if [ ! -d ${DOT_DIRECTORY} ]; then
 fi
 
 cd ${DOT_DIRECTORY}
+source ./lib/helper.sh
 source ./lib/brew.sh
 source ./lib/asdf.sh
 
