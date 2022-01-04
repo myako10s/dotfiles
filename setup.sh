@@ -109,8 +109,10 @@ link_files() {
     src=${src_dest[0]}
     dest=${src_dest[1]}
     [ -n "${OVERWRITE}" -a -e ${HOME}/${dest} ] && rm -f ${HOME}/${dest}
-    mkdir -p $(dirname ${HOME}/${dest})
-    ln -snfv ${DOT_DIRECTORY}/${src} ${HOME}/${dest}
+    if [ ! -e ${HOME}/${dest} ]; then
+      mkdir -p $(dirname ${HOME}/${dest})
+      ln -snfv ${DOT_DIRECTORY}/${src} ${HOME}/${dest}
+    fi
   done
 
   echo $(tput setaf 2)Deploy dotfiles complete!. ✔︎$(tput sgr0)
