@@ -1,4 +1,4 @@
 nodejs lts-gallium
-python 3.10.1 system
+python 3.10.1
 java adoptopenjdk-11.0.13+8
 poetry 1.2.0a2

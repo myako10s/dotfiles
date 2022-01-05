@@ -4,7 +4,6 @@ fi
 
 HOMEBREW_PREFIX="$(brew --prefix)"
 
-path_prepend ${HOME}/Library/Python/3.9/bin
 path_prepend ${HOMEBREW_PREFIX}/opt/binutils/bin
 path_prepend /usr/local/sbin
 
