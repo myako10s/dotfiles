@@ -19,8 +19,12 @@ run_asdf() {
       # avoid macos-ld-symbols-not-found-for-architecture-x86_64-1245 issue
       path_remove $(brew --prefix binutils)/bin
 
+      pushd . && cd ${HOME}
+
       asdf install
       [[ $? ]] && echo "$(tput setaf 2)Install packages complete. ✔︎$(tput sgr0)"
+
+      popd
 
       # restore binutils path
       [ -e $(brew --prefix binutils)/bin ] && path_prepend $(brew --prefix binutils)/bin
