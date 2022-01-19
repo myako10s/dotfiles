@@ -58,6 +58,7 @@ cd ${DOT_DIRECTORY}
 source ./lib/helper.sh
 source ./lib/brew.sh
 source ./lib/asdf.sh
+source ./lib/osx.sh
 
 install() {
   # ignore shell execution error temporarily
@@ -66,6 +67,7 @@ install() {
   case ${OSTYPE} in
     darwin*)
       run_brew
+      run_osx
       ;;
     *)
       echo $(tput setaf 1)Working only OSX$(tput sgr0)
