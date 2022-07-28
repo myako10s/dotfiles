@@ -9,6 +9,11 @@ asdf によるランタイム管理
 
 ```sh
 brew install asdf
+```
+
+インストール後の設定は brew が出力する Caveats の指示に従う。以下は bash の場合
+
+```sh
 echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ~/.bash_profile
 echo -e "\n. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash" >> ~/.bash_profile
 exec $SHELL -l
@@ -22,10 +27,10 @@ asdf plugin-add nodejs
 
 # Python
 asdf plugin-add python
-asdf plugin-add poetry
+#asdf plugin-add poetry  # poetry は Homebrew で入れるようにした
 
 # Java
-asdf plugin-add java
+#asdf plugin-add java  # 当面不要
 ```
 
 プラグインによっては依存パッケージの追加インストールが必要。以下は [nodejs](http://asdf-vm.com/guide/getting-started.html#plugin-dependencies) の場合。

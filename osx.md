@@ -110,14 +110,14 @@ killall SystemUIServer
 
 * ~~dotfiles と setup-osx を1つにまとめてもいいかも・・・こだわりすぎない方がよさそう~~
 * ~~dotfiles は 直下の .??* しか対応してなくて .git/config/ignore とか未対応。これを対応させようとなると結局アプリ毎にコマンドで組むことになりそう~~
-* docker, lima
+* ~~docker, lima~~
 * ~~ruby とか python とか node とか~~
 * ~~anyenv って？他にもいいのありそう~~
 * ~~asdf で java~~
 * ~~asdf のところ長くなったので切り出してコンパクトにしたい（初期導入〜維持のサイクルをコンパクトにって意味）~~
-* dotfiles の更新アラートもほしいね（参考に例あり）
-* iTerm2 ってそんなにいいんか
-* fish ってそんなにいいんか
+* ~~dotfiles の更新アラートもほしいね（参考に例あり）~~ プロンプトを pure にしたら軽いし十分
+* ~~iTerm2 ってそんなにいいんか~~
+* ~~fish ってそんなにいいんか~~  とりあえず zsh で十分快適
 * Homebrew の依存関係の調べ方（いらないもの消したいとき用）
   * asdf入れたら（ってかasdf経由の Node.js）たくさん依存パッケージ入れる羽目になったので
   * `brew info <package>` で見れそうだが1つ1つはしんどいな
@@ -141,9 +141,10 @@ make 美しい
 
 https://github.com/MagicalLiebe/dotfiles
 
-lima + docker
+lima + docker  後者のを参考にしたら簡単だった
 
 https://qiita.com/yoichiwo7/items/44aff38674134ad87da3
+https://zenn.dev/wim/articles/build_lima_environment_on_m1_mac
 
 iTerm2
 
