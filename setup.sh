@@ -78,6 +78,7 @@ install() {
   run_asdf
 
   echo "$(tput setaf 2)Install complete!. ✔︎$(tput sgr0)"
+  echo "You can restart login-shell: exec \$SHELL -l"
 }
 
 update() {
