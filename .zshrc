@@ -1,11 +1,16 @@
 ## path
 typeset -U path PATH
 path=(
-  $(brew --prefix)/opt/libpq/bin(N-/)
+  $(brew --prefix libpq)/bin(N-/)
+  ~/go/bin(N-/)
+  ~/.bin(N-/)
   $path
 )
 
-. $(brew --prefix)/opt/asdf/libexec/asdf.sh
+. $(brew --prefix asdf)/libexec/asdf.sh
+
+. $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+. $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
 ## alias
 alias ls="ls -FG"
@@ -50,3 +55,6 @@ setopt nobeep
 setopt nolistbeep
 setopt correct
 
+## terraform autocomplete
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform

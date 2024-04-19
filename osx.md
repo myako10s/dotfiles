@@ -102,8 +102,25 @@ vscodeの設定は dotfiles ではなく標準装備された同期機能を使�
 スクリーンショットの保存先変更
 
 ```sh
-defaults write com.apple.screencapture location ~/Pictures/screenshots
+defaults write com.apple.screencapture location ~/Downloads
 killall SystemUIServer
+```
+
+ターミナルで sudo 実行時に Touch ID を使用する
+
+```sh
+sudo vi /etc/pam.d/sudo
+```
+
+```pam
+# sudo: auth account password session
+auth       include        sudo_local
+auth       sufficient     pam_tid.so    # Add
+auth       sufficient     pam_smartcard.so
+auth       required       pam_opendirectory.so
+account    required       pam_permit.so
+password   required       pam_deny.so
+session    required       pam_permit.so
 ```
 
 ## TODO
