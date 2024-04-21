@@ -105,7 +105,7 @@ link_files() {
   # add file/directory name here with "src dest" format
   otherfiles=(
     "git .config/git" # git
-    "bin .bin"        # local scripts
+    "minikube/config/config.json .minikube/config/config.json"
   )
 
   for src_dest_pair in "${otherfiles[@]}"
