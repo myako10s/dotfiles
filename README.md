@@ -12,7 +12,7 @@ xcode-select --install
 
 ### Homebrew
 
-Install Homebrew. Check [here](https://brew.sh/index_ja) for the latest installation procedure.
+Install Homebrew. Check [here](https://brew.sh/ja/) for the latest installation procedure.
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -40,7 +40,21 @@ Force override existing dotfiles.
 bash ~/dotfiles/setup.sh -f deploy
 ```
 
+> [!NOTE]
+> Additionally, if you receive "zsh compinit: insecure directories" warnings when attempting to load these completions, you may need to run this, and see also `compaudit`:
+```sh
+chmod -R go-w /opt/homebrew/share
+```
+
 ## 3. Install apps
+
+Install Rosetta
+
+```sh
+sudo softwareupdate --install-rosetta
+```
+
+Install brew apps
 
 ```sh
 bash ~/dotfiles/setup.sh install

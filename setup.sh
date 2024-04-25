@@ -66,8 +66,8 @@ install() {
 
   case ${OSTYPE} in
     darwin*)
-      run_brew
       run_osx
+      run_brew
       ;;
     *)
       echo $(tput setaf 1)Working only OSX$(tput sgr0)

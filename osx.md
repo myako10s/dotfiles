@@ -11,9 +11,12 @@ Xcode本体が不要な場合は以下のようにコマンドラインツール
 xcode-select --install
 ```
 
+> [!NOTE]
+> Xcodeをインストールしていても、 Homebrew インストールの中でコマンドラインツールはインストールされる。
+
 ## Homebrew
 
-最新のインストールコマンドは [Homebrew](https://brew.sh/index_ja) を確認すること。
+最新のインストールコマンドは [Homebrew](https://brew.sh/ja/) を確認すること。
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
