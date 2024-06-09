@@ -10,6 +10,9 @@ Install [Xcode](https://developer.apple.com/download/more/#). Or, install Xcode 
 xcode-select --install
 ```
 
+> [!NOTE]
+> Even if Xcode is installed, the command line tools are installed within the Homebrew installation.
+
 ### Homebrew
 
 Install Homebrew. Check [here](https://brew.sh/ja/) for the latest installation procedure.

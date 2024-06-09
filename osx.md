@@ -126,6 +126,22 @@ password   required       pam_deny.so
 session    required       pam_permit.so
 ```
 
+キーボード・トラックパッド設定の変更
+
+Apple メニュー  ＞「システム設定」＞ キーボード
+
+- 地球儀キーを押して「音声入力」or「何もしない」
+
+Apple メニュー  ＞「システム設定」＞ キーボード ＞ キーボードショートカット
+
+- ファンクションキー ＞ F1、F2 などのキーを標準のファンクションキーとして使用
+- 修飾キー ＞ Caps Lock と Control を入れ替え
+- Mission Control ＞ ^矢印キー4つを無効化
+
+Apple メニュー  ＞「システム設定」＞ トラックパッド
+
+- 軌跡の速さを速めに設定
+
 ## TODO
 
 * ~~dotfiles と setup-osx を1つにまとめてもいいかも・・・こだわりすぎない方がよさそう~~
