@@ -1,3 +1,4 @@
-nodejs lts-gallium
+nodejs 18.20.7
 python system
-java zulu-17.40.19
+java temurin-22.0.2+9
+terraform system

@@ -7,7 +7,7 @@ path=(
   $path
 )
 
-. $(brew --prefix asdf)/libexec/asdf.sh
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 . $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 . $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
@@ -17,7 +17,11 @@ alias ls="ls -FG"
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -la'
-alias brew="PATH=${PATH/${HOME}\/\.asdf\/shims:/} brew"
+# alias brew="PATH=${PATH/${HOME}\/\.asdf\/shims:/} brew"
+alias python="python3"
+alias pip="pip3"
+alias g="git"
+alias k="kubectl"
 
 ## completion
 fpath=(
@@ -38,10 +42,13 @@ HISTSIZE=100000
 SAVEHIST=100000
 #setopt share_history
 setopt append_history
+setopt inc_append_history_time
+setopt hist_expire_dups_first
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt hist_reduce_blanks
 setopt hist_save_no_dups
+setopt hist_no_store
 setopt hist_expand
 
 ## prompt
@@ -51,6 +58,10 @@ zstyle :prompt:pure:path color 027
 prompt pure
 
 ## other settings
+setopt autopushd
+setopt pushdminus
+setopt pushdsilent
+setopt pushdignoredups
 setopt nobeep
 setopt nolistbeep
 setopt correct
@@ -58,3 +69,11 @@ setopt correct
 ## terraform autocomplete
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+## azure-cli autocomplete
+autoload bashcompinit && bashcompinit
+source $(brew --prefix)/etc/bash_completion.d/az
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/ms/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

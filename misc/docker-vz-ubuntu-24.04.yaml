@@ -86,3 +86,16 @@ message: |
   docker run hello-world
   ------
 
+# A template to run ubuntu using vmType: vz instead of qemu (Default)
+# This template requires Lima v0.14.0 or later and macOS 13.
+vmType: "vz"
+rosetta:
+  # Enable Rosetta for Linux.
+  # Hint: try `softwareupdate --install-rosetta` if Lima gets stuck at `Installing rosetta...`
+  enabled: true
+  # Register rosetta to /proc/sys/fs/binfmt_misc
+  binfmt: true
+mountType: "virtiofs"
+networks:
+# The "vzNAT" IP address is accessible from the host, but not from other guests.
+- vzNAT: true
