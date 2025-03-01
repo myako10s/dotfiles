@@ -106,6 +106,7 @@ link_files() {
   otherfiles=(
     "git .config/git" # git
     "minikube/config/config.json .minikube/config/config.json"
+    "karabiner .config/karabiner"
   )
 
   for src_dest_pair in "${otherfiles[@]}"
