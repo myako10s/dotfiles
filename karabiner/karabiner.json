@@ -4,7 +4,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Remap the local JIS keyboard layout to allow remote US keyboard operation",
+                        "description": "Remap local JIS keyboard to be able to input remote Windows with US keyboard layout",
                         "manipulators": [
                             {
                                 "conditions": [
