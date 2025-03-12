@@ -482,83 +482,47 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな） (rev 3)",
-                        "enabled": false,
-                        "manipulators": [
+                            },
                             {
-                                "from": {
-                                    "key_code": "left_command",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
-                                "to": [
+                                "conditions": [
                                     {
-                                        "key_code": "left_command",
-                                        "lazy": true
+                                        "keyboard_types": ["jis"],
+                                        "type": "keyboard_type_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.microsoft.rdc.macos"
+                                        ],
+                                        "type": "frontmost_application_if"
                                     }
                                 ],
-                                "to_if_alone": [{ "key_code": "japanese_eisuu" }],
-                                "to_if_held_down": [{ "key_code": "left_command" }],
+                                "description": "Remap japanese_eisuu to left_shift",
+                                "from": {
+                                    "key_code": "japanese_eisuu",
+                                    "modifiers": { "optional": ["shift", "control", "option", "command"] }
+                                },
+                                "to": [{ "key_code": "left_shift" }],
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "keyboard_types": ["jis"],
+                                        "type": "keyboard_type_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.microsoft.rdc.macos"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "Remap japanese_kana to right_shift",
                                 "from": {
-                                    "key_code": "right_command",
-                                    "modifiers": { "optional": ["any"] }
+                                    "key_code": "japanese_kana",
+                                    "modifiers": { "optional": ["shift", "control", "option", "command"] }
                                 },
-                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
-                                "to": [
-                                    {
-                                        "key_code": "right_command",
-                                        "lazy": true
-                                    }
-                                ],
-                                "to_if_alone": [{ "key_code": "japanese_kana" }],
-                                "to_if_held_down": [{ "key_code": "right_command" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "英数 to F6 (IME Off) for Microsoft Remote Desktop",
-                        "enabled": false,
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "com.microsoft.rdc.macos"
-                                        ],
-                                        "description": "Microsoft Remote Desktop",
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": { "key_code": "japanese_eisuu" },
-                                "to": [{ "key_code": "f6" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "かな to F7 (IME On) for Microsoft Remote Desktop",
-                        "enabled": false,
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "com.microsoft.rdc.macos"
-                                        ],
-                                        "description": "Microsoft Remote Desktop",
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": { "key_code": "japanese_kana" },
-                                "to": [{ "key_code": "f7" }],
+                                "to": [{ "key_code": "right_shift" }],
                                 "type": "basic"
                             }
                         ]
