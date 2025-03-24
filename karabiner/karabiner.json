@@ -496,12 +496,12 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Remap japanese_eisuu to left_shift",
+                                "description": "Remap japanese_eisuu to right_control",
                                 "from": {
                                     "key_code": "japanese_eisuu",
                                     "modifiers": { "optional": ["shift", "control", "option", "command"] }
                                 },
-                                "to": [{ "key_code": "left_shift" }],
+                                "to": [{ "key_code": "right_control" }],
                                 "type": "basic"
                             },
                             {
@@ -517,23 +517,53 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Remap japanese_kana to right_shift",
+                                "description": "Remap japanese_kana to right_alt",
                                 "from": {
                                     "key_code": "japanese_kana",
                                     "modifiers": { "optional": ["shift", "control", "option", "command"] }
                                 },
-                                "to": [{ "key_code": "right_shift" }],
+                                "to": [{ "key_code": "right_alt" }],
                                 "type": "basic"
                             }
                         ]
                     }
                 ]
             },
+            "devices": [
+                {
+                    "identifiers": { "is_keyboard": true },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "caps_lock" },
+                            "to": [{ "key_code": "left_control" }]
+                        },
+                        {
+                            "from": { "key_code": "left_control" },
+                            "to": [{ "key_code": "caps_lock" }]
+                        }
+                    ]
+                }
+            ],
             "name": "JIS to US for Windows Remote Desktop",
             "selected": true,
             "virtual_hid_keyboard": { "keyboard_type_v2": "jis" }
         },
         {
+            "devices": [
+                {
+                    "identifiers": { "is_keyboard": true },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "caps_lock" },
+                            "to": [{ "key_code": "left_control" }]
+                        },
+                        {
+                            "from": { "key_code": "left_control" },
+                            "to": [{ "key_code": "caps_lock" }]
+                        }
+                    ]
+                }
+            ],
             "name": "(disable)",
             "virtual_hid_keyboard": { "keyboard_type_v2": "jis" }
         },
