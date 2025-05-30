@@ -66,6 +66,9 @@ setopt nobeep
 setopt nolistbeep
 setopt correct
 
+## set DOCKER_HOST if lima is running
+[ -f "$HOME/.docker-host-env" ] && source "$HOME/.docker-host-env"
+
 ## terraform autocomplete
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
