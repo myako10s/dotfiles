@@ -524,6 +524,38 @@
                                 },
                                 "to": [{ "key_code": "right_alt" }],
                                 "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "keyboard_types": ["jis"],
+                                        "type": "keyboard_type_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.microsoft.rdc.macos"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "Remap option + ¥ to \\",
+                                "from": {
+                                    "key_code": "international3",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "option"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "backslash"
+                                    }
+                                ],
+                                "type": "basic"
                             }
                         ]
                     }
