@@ -542,19 +542,11 @@
                                 "from": {
                                     "key_code": "international3",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "option"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "mandatory": ["option"],
+                                        "optional": ["any"]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "backslash"
-                                    }
-                                ],
+                                "to": [{ "key_code": "backslash" }],
                                 "type": "basic"
                             }
                         ]
