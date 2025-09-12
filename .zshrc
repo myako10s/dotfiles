@@ -70,6 +70,7 @@ setopt hist_expand
 
 ## prompt
 autoload -Uz colors && colors
+autoload -U promptinit; promptinit
 zstyle :prompt:pure:path color 027
 prompt pure
 
