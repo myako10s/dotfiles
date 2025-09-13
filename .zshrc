@@ -1,17 +1,9 @@
 ## path
 typeset -U path PATH
 path=(
-  '/usr/local/bin'(N-/)
-  '/usr/bin'(N-/)
-  '/bin'(N-/)
-  '/usr/local/sbin'(N-/)
-  '/usr/sbin'(N-/)
-  '/sbin'(N-/)
-)
-path=(
   "$HOME/.local/bin"(N-/)
   "$GOPATH/bin"(N-/)
-  $(brew --prefix libpq)/bin(N-/)
+  "$(brew --prefix libpq)/bin"(N-/)
   "$path[@]"
 )
 
