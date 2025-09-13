@@ -1,5 +1,12 @@
 ## Never share this!
 .ssh
 .aws
-karabiner/automatic_backups
-karabiner/assets/complex_modifications
+
+## Local settings
+*.local
+local.*
+!local.*.sample
+
+## Zsh cache
+*.zwc
+.zcomp*
