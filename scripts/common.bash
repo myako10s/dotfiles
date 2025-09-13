@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -x
+[[ "${DEBUG:-}" == "1" ]] && set -x && export DEBUG=1
 
 export SCRIPTS DOTFILES
 SCRIPTS="$(cd "$(dirname "$0")" || exit 1; pwd)"

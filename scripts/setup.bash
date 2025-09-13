@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-set -eux
+set -eu
+[[ "${DEBUG:-}" == "1" ]] && set -x && export DEBUG=1
+
 # shellcheck source=./scripts/common.bash
 source "$(dirname "$0")/common.bash"
 

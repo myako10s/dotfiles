@@ -1,4 +1,7 @@
 #!/bin/sh
+
+[[ "${DEBUG:-}" == "1" ]] && export DEBUG=1
+
 INSTALL_DIR="${INSTALL_DIR:-$HOME/.dotfiles.git}"
 
 if [ -d "$INSTALL_DIR" ]; then

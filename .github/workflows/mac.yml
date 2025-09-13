@@ -9,4 +9,5 @@ jobs:
 
     steps:
       - name: Setup
-        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/myako10s/dotfiles/HEAD/install.sh)"
+        run: |
+          DEBUG=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/myako10s/dotfiles/HEAD/install.sh)"
