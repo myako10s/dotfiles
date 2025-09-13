@@ -112,18 +112,16 @@ killall SystemUIServer
 ターミナルで sudo 実行時に Touch ID を使用する
 
 ```sh
-sudo vi /etc/pam.d/sudo
+sudo cp /etc/pam.d/sudo_local.template /etc/pam.d/sudo_local
+sudo vi /etc/pam.d/sudo_local
 ```
 
-```pam
-# sudo: auth account password session
-auth       include        sudo_local
-auth       sufficient     pam_tid.so    # Add
-auth       sufficient     pam_smartcard.so
-auth       required       pam_opendirectory.so
-account    required       pam_permit.so
-password   required       pam_deny.so
-session    required       pam_permit.so
+最終行のコメントを解除する
+
+```pam:/etc/pam.d/sudo_local
+# sudo_local: local config file which survives system update and is included for sudo
+# uncomment following line to enable Touch ID for sudo
+auth       sufficient     pam_tid.so
 ```
 
 キーボード・トラックパッド設定の変更
@@ -185,4 +183,3 @@ https://zenn.dev/wim/articles/build_lima_environment_on_m1_mac
 iTerm2
 
 https://bottoms-programming.com/archives/mac-terminal-to-iterm2.html
-
