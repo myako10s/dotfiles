@@ -26,7 +26,7 @@ Install Homebrew. Check [here](https://brew.sh/ja/) for the latest installation 
 Clone this repository into `~/dotfiles`.
 
 ```sh
-git clone https://github.com/myako10s/dotfiles.git ~/dotfiles
+git clone https://github.com/myako10s/dotfiles.git ~/.dotfiles.git
 ```
 
 ## 2. Deploy dotfiles
