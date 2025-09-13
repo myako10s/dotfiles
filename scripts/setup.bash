@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck shell=bash
 set -eu
 [[ "${DEBUG:-}" == "1" ]] && set -x && export DEBUG=1
 

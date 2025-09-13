@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck shell=bash
 [[ "${DEBUG:-}" == "1" ]] && set -x && export DEBUG=1
 
 export SCRIPTS DOTFILES

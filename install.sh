@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env bash
+# shellcheck shell=bash
 
 [[ "${DEBUG:-}" == "1" ]] && export DEBUG=1
 
