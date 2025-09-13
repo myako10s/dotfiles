@@ -1,16 +1,24 @@
 ## path
 typeset -U path PATH
 path=(
+  '/usr/local/bin'(N-/)
+  '/usr/bin'(N-/)
+  '/bin'(N-/)
+  '/usr/local/sbin'(N-/)
+  '/usr/sbin'(N-/)
+  '/sbin'(N-/)
+)
+path=(
+  "$HOME/.local/bin"(N-/)
+  "$GOPATH/bin"(N-/)
   $(brew --prefix libpq)/bin(N-/)
-  ~/go/bin(N-/)
-  ~/.bin(N-/)
-  $path
+  "$path[@]"
 )
 
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
-. $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-. $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+. $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+. $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
 ## alias
 alias ls="ls -FG"
@@ -25,10 +33,11 @@ alias k="kubectl"
 
 ## completion
 # 1. fpath settings
+typeset -U fpath FPATH
 fpath=(
   $(brew --prefix)/share/zsh-completions(N-/)
   $(brew --prefix)/share/zsh/site-functions(N-/)
-  $fpath
+  $fpath[@]
 )
 
 # 2. compinit
