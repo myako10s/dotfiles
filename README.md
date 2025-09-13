@@ -1,10 +1,8 @@
 # dotfiles
 
-<!--
 ![](https://github.com/myako10s/dotfiles/workflows/Ubuntu/badge.svg)
 ![](https://github.com/myako10s/dotfiles/workflows/macOS/badge.svg)
 ![](https://github.com/myako10s/dotfiles/workflows/Lint/badge.svg)
--->
 
 ## Installation
 
