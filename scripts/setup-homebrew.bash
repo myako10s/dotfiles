@@ -17,7 +17,12 @@ fi
 echo "Updating Homebrew..."
 brew update
 
-echo "Installing Homebrew apps..."
-brew bundle install --file "${DOTFILES}/config/homebrew/Brewfile" --no-upgrade
+if DEBUG=1; then
+    # Reduce GitHub Actions minutes consumption
+    echo "Skipping Homebrew apps installation in debug mode."
+else
+    echo "Installing Homebrew apps..."
+    brew bundle install --file "${DOTFILES}/config/homebrew/Brewfile" --no-upgrade
+fi
 
 true
