@@ -7,7 +7,7 @@
 ## Installation
 
 ```shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/myako10s/dotfiles/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://myako10s.github.io/dotfiles/install.sh)"
 ```
 
 ---

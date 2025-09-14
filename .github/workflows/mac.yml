@@ -10,4 +10,4 @@ jobs:
     steps:
       - name: Setup
         run: |
-          DEBUG=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/myako10s/dotfiles/HEAD/install.sh)"
+          DEBUG=1 /bin/bash -c "$(curl -fsSL https://myako10s.github.io/dotfiles/install.sh)"
