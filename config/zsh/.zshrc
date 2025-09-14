@@ -57,6 +57,7 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 
 ## history
+export HISTFILE="$XDG_STATE_HOME/zsh_history"
 HISTSIZE=100000
 SAVEHIST=100000
 #setopt share_history
