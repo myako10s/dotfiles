@@ -10,3 +10,4 @@ local.*
 ## Zsh cache
 *.zwc
 .zcomp*
+.zsh_sessions
