@@ -6,10 +6,10 @@
 INSTALL_DIR="${INSTALL_DIR:-$HOME/.dotfiles.git}"
 
 if [ -d "$INSTALL_DIR" ]; then
-    echo "Updating dotfiles...."
+    echo "Updating dotfiles..."
     git -C "$INSTALL_DIR" pull
 else
-    echo "Installing dotfiles...."
+    echo "Installing dotfiles..."
     git clone https://github.com/myako10s/dotfiles.git "$INSTALL_DIR"
 fi
 
