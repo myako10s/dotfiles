@@ -22,5 +22,6 @@ mkdir -p \
 ln -snfv "$DOTFILES/config/"* "$XDG_CONFIG_HOME"
 ln -snfv "$XDG_CONFIG_HOME/zsh/.zshenv" "$HOME/.zshenv"
 ln -snfv "$XDG_CONFIG_HOME/zsh/.zshrc" "$HOME/.zshrc"
-# ln -snfv "$XDG_CONFIG_HOME/editorconfig/.editorconfig" "$HOME/.editorconfig"
-# ln -snfnv "$XDG_CONFIG_HOME/vim" "$HOME/.vim"
+ln -snfv "$XDG_CONFIG_HOME/editorconfig/.editorconfig" "$HOME/.editorconfig"
+mkdir -p "$HOME/.minikube/config"
+ln -snfv "$XDG_CONFIG_HOME/minikube/config.json" "$HOME/.minikube/config/config.json"
