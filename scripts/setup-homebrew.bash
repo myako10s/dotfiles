@@ -17,7 +17,7 @@ fi
 echo "Updating Homebrew..."
 brew update
 
-# echo "Installing Homebrew apps..."
-# brew bundle install --file "${DOTFILES}/config/homebrew/Brewfile" --no-lock --no-upgrade
+echo "Installing Homebrew apps..."
+brew bundle install --file "${DOTFILES}/config/homebrew/Brewfile" --no-upgrade
 
 true
