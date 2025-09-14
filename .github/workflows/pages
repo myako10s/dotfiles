@@ -1,0 +1,39 @@
+name: Pages
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: [ "install.sh" ]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: github-pages
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Prepare public directory containing only install.sh
+        run: |
+          mkdir -p public
+          cp install.sh public/
+          chmod 644 public/install.sh
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
