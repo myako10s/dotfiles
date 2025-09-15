@@ -4,15 +4,11 @@ typeset -U fpath FPATH
 path=(
   "$HOME/.local/bin"(N-/)
   "$GOPATH/bin"(N-/)
-  "$(brew --prefix libpq)/bin"(N-/)
   "$path[@]"
 )
 fpath=(
   $fpath[@]
 )
-
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-
 
 ## history
 export HISTFILE="$XDG_STATE_HOME/zsh_history"

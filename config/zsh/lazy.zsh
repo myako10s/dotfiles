@@ -1,10 +1,11 @@
 
 ## alias
-alias ls="ls -FG"
+alias ls="ls -F --color=auto" # for GNU ls
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -la'
 # alias brew="PATH=${PATH/${HOME}\/\.asdf\/shims:/} brew"
+alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 alias python="python3"
 alias pip="pip3"
 alias g="git"
@@ -22,10 +23,11 @@ case "$OSTYPE" in
     ;;
     darwin*)
         path=(
-            $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin(N-/)
-            $HOMEBREW_PREFIX/opt/findutils/libexec/gnubin(N-/)
-            $HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin(N-/)
-            $HOMEBREW_PREFIX/opt/grep/libexec/gnubin(N-/)
+            "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"(N-/)
+            "$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin"(N-/)
+            "$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin"(N-/)
+            "$HOMEBREW_PREFIX/opt/grep/libexec/gnubin"(N-/)
+            "$HOMEBREW_PREFIX/opt/libpq/bin"(N-/)
             "$path[@]"
         )
         alias y='pbcopy'
@@ -39,6 +41,9 @@ zstyle ':completion:*:commands' rehash 1
 zstyle ':completion:*' ignore-parents parent pwd ..
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
+
+## asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 ## google-cloud-sdk
 source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
@@ -90,6 +95,31 @@ export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
 export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query"'
 export FZF_DEFAULT_COMMAND='fd --hidden --color=always'
 
+
+## dotfiles management
+# run all setup scripts
+dotfiles::setup() {
+    /bin/bash "$DOTFILES/scripts/setup.bash" "$@"
+}
+# link dotfiles
+dotfiles::link() {
+    /bin/bash "$DOTFILES/scripts/setup-links.bash" "$@"
+}
+# update package list
+dotfiles::update() {
+    if command -v apt-mark &>/dev/null; then
+        # Ubuntu / Debian
+        apt-mark showmanual > "$DOTFILES/config/apt/packages.txt"
+        echo "Saved package list to $DOTFILES/config/apt/packages.txt"
+    elif command -v brew &>/dev/null; then
+        # macOS
+        brew bundle dump --force --global
+        echo "Saved Brewfile to $DOTFILES/config/homebrew/Brewfile"
+    else
+        echo "No supported package manager found"
+        return 1
+    fi
+}
 
 ## local
 if [[ -f "$ZDOTDIR/local.zsh" ]]; then

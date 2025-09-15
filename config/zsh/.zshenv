@@ -12,3 +12,6 @@ export GOPATH="$XDG_DATA_HOME/go"
 
 ## sheldon
 export SHELDON_CONFIG_DIR="$ZDOTDIR"
+
+## dotfiles
+export DOTFILES="$HOME/.dotfiles.git"

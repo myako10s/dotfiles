@@ -1,5 +1,6 @@
 tap "chipmk/tap"
 tap "hashicorp/tap"
+brew "git"
 brew "asdf"
 brew "python@3.13"
 brew "awscli"
