@@ -22,10 +22,10 @@ case "$OSTYPE" in
     ;;
     darwin*)
         path=(
-            /usr/local/opt/coreutils/libexec/gnubin(N-/)
-            /usr/local/opt/findutils/libexec/gnubin(N-/)
-            /usr/local/opt/gnu-sed/libexec/gnubin(N-/)
-            /usr/local/opt/grep/libexec/gnubin(N-/)
+            $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin(N-/)
+            $HOMEBREW_PREFIX/opt/findutils/libexec/gnubin(N-/)
+            $HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin(N-/)
+            $HOMEBREW_PREFIX/opt/grep/libexec/gnubin(N-/)
             "$path[@]"
         )
         alias y='pbcopy'
