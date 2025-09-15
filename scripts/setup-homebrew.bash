@@ -17,7 +17,7 @@ fi
 echo "Updating Homebrew..."
 brew update
 
-if DEBUG=1; then
+if [[ "$DEBUG" == "1" ]]; then
     # Reduce GitHub Actions minutes consumption
     echo "Skipping Homebrew apps installation in debug mode."
 else
