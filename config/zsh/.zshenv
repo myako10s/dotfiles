@@ -9,3 +9,6 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 ## Go
 export GOPATH="$XDG_DATA_HOME/go"
+
+## sheldon
+export SHELDON_CONFIG_DIR="$ZDOTDIR"

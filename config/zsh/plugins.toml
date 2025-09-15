@@ -1,0 +1,64 @@
+shell = "zsh"
+
+apply = ["defer"]
+
+[templates]
+defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer -a -t0.01 source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
+defer0 = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer -a source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
+
+[plugins]
+
+####################
+# eager
+####################
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+apply = ["source"]
+profiles = ["eager"]
+
+[plugins.pure]
+github = "sindresorhus/pure"
+use = ["async.zsh", "pure.zsh"]
+apply = ["fpath", "source"]
+profiles = ["eager"]
+hooks.post = """
+autoload -Uz colors && colors
+autoload -U promptinit && promptinit
+zstyle :prompt:pure:path color 027
+prompt pure
+"""
+
+[plugins.lazy]
+local = "~/.config/zsh"
+use = ["lazy.zsh"]
+profiles = ["eager"]
+
+####################
+# lazy
+####################
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+dir = "src"
+apply = ["fpath"]
+profiles = ["lazy"]
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+profiles = ["lazy"]
+
+[plugins.zsh-syntax-highlighting]
+github = 'zsh-users/zsh-syntax-highlighting'
+profiles = ["lazy"]
+
+
+# local
+[plugins.compinit]
+inline = """
+autoload -Uz compinit
+zsh-defer -a -t0.01 compinit -d "$XDG_STATE_HOME/zcompdump"
+autoload -U bashcompinit
+bashcompinit
+"""
+profiles = ["lazy"]
