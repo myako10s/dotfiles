@@ -22,6 +22,14 @@ defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 # Trackpad
 defaults write NSGlobalDomain com.apple.trackpad.scaling -float 2.0
 
+# Text input
+defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write WebAutomaticSpellingCorrectionEnabled -bool false
+defaults write -g NSAutomaticCapitalizationEnabled -bool false
+defaults write -g NSAutomaticPeriodSubstitutionEnabled -bool false
+defaults write -g NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write -g NSAutomaticDashSubstitutionEnabled -bool false
+
 # Dock
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock tilesize -int 35
