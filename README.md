@@ -9,7 +9,3 @@
 ```shell
 /bin/bash -c "$(curl -fsSL https://myako10s.github.io/dotfiles/install.sh)"
 ```
-
----
-
-[Previous README.md](docs/README-prev.md)
