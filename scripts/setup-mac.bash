@@ -38,3 +38,9 @@ defaults write com.apple.screencapture show-thumbnail -bool true
 killall Dock
 killall Finder
 killall SystemUIServer
+
+# Install Rosetta 2
+if ! /usr/bin/pgrep oahd >/dev/null 2>&1; then
+  echo "Installing Rosetta 2..."
+  sudo softwareupdate --install-rosetta --agree-to-license
+fi
