@@ -30,13 +30,12 @@ defaults write com.apple.dock magnification -bool false
 # Mission Control
 defaults write com.apple.dock wvous-br-corner -int 1
 defaults write com.apple.dock wvous-br-modifier -int 0
-{
-  local PLIST="$HOME/Library/Preferences/com.apple.symbolichotkeys.plist"
-  /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:32:enabled 0" "$PLIST"
-  /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:33:enabled 0" "$PLIST"
-  /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:79:enabled 0" "$PLIST"
-  /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:81:enabled 0" "$PLIST"
-}
+
+PLIST="$HOME/Library/Preferences/com.apple.symbolichotkeys.plist"
+/usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:32:enabled 0" "$PLIST"
+/usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:33:enabled 0" "$PLIST"
+/usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:79:enabled 0" "$PLIST"
+/usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:81:enabled 0" "$PLIST"
 
 # Disable .DS_Store on network disks
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
