@@ -58,10 +58,6 @@ source $(brew --prefix)/etc/bash_completion.d/az
 ## set DOCKER_HOST if lima is running
 [ -f "$HOME/.docker-host-env" ] && source "$HOME/.docker-host-env"
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/ms/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
 ## kiro
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
