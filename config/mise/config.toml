@@ -1,0 +1,4 @@
+[tools]
+firebase = "latest"
+gemini-cli = "latest"
+node = "22"

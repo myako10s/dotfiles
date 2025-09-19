@@ -4,7 +4,6 @@ alias ls="ls -F --color=auto" # for GNU ls
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -la'
-# alias brew="PATH=${PATH/${HOME}\/\.asdf\/shims:/} brew"
 alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 alias python="python3"
 alias pip="pip3"
@@ -42,8 +41,10 @@ zstyle ':completion:*' ignore-parents parent pwd ..
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
-## asdf
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+## mise
+eval "$(mise activate zsh)"
+export MISE_NODE_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/default-npm-packages"
+export MISE_PYTHON_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/default-python-packages"
 
 ## google-cloud-sdk
 source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
