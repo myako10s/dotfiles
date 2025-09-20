@@ -30,15 +30,6 @@ if [ ! -f $HOME/.local/bin/sheldon ]; then
       | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
 fi
 
-## mise
-apt-get update -y && apt-get install -y gpg sudo wget curl
-install -dm 755 /etc/apt/keyrings
-wget -qO - https://mise.jdx.dev/gpg-key.pub | gpg --dearmor | tee /etc/apt/keyrings/mise-archive-keyring.gpg 1> /dev/null
-echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.gpg arch=$(dpkg --print-architecture)] https://mise.jdx.dev/deb stable main" | tee /etc/apt/sources.list.d/mise.list
-apt-get update
-apt-get install -y mise
-# TODO: install completion
-
 ## Docker
 # Add Docker's official GPG key:
 apt-get update
