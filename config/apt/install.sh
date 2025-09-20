@@ -23,6 +23,13 @@ apt-get install -y \
     zip \
     zsh
 
+## sheldon
+mkdir -p $HOME/.local/bin
+if [ ! -f $HOME/.local/bin/sheldon ]; then
+  curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
+      | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
+fi
+
 ## mise
 apt-get update -y && apt-get install -y gpg sudo wget curl
 install -dm 755 /etc/apt/keyrings
