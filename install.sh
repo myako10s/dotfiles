@@ -5,6 +5,8 @@
 
 INSTALL_DIR="${INSTALL_DIR:-$HOME/.dotfiles.git}"
 
+/usr/bin/env bash "$INSTALL_DIR/scripts/setup-git.bash" || exit 1
+
 if [ -d "$INSTALL_DIR" ]; then
     echo "Updating dotfiles..."
     git -C "$INSTALL_DIR" pull
@@ -13,4 +15,4 @@ else
     git clone https://github.com/myako10s/dotfiles.git "$INSTALL_DIR"
 fi
 
-/bin/bash "$INSTALL_DIR/scripts/setup.bash"
+/usr/bin/env bash "$INSTALL_DIR/scripts/setup.bash"
