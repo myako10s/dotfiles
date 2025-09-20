@@ -2,3 +2,5 @@
 firebase = "latest"
 gemini-cli = "latest"
 node = "22"
+terraform = "latest"
+usage = "latest"

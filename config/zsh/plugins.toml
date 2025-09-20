@@ -52,6 +52,13 @@ profiles = ["lazy"]
 github = 'zsh-users/zsh-syntax-highlighting'
 profiles = ["lazy"]
 
+[plugins.terraform]
+inline = """
+if [ -x "$HOME/.local/share/mise/shims/terraform" ]; then
+  complete -o nospace -C "$HOME/.local/share/mise/shims/terraform" terraform
+fi
+"""
+profiles = ["lazy"]
 
 # local
 [plugins.compinit]

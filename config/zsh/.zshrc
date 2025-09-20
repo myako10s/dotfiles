@@ -7,6 +7,7 @@ path=(
   "$path[@]"
 )
 fpath=(
+  $XDG_DATA_HOME/zsh/site-functions(N-/)
   $fpath[@]
 )
 

@@ -42,16 +42,16 @@ zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 ## mise
-eval "$(mise activate zsh)"
-export MISE_NODE_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/default-npm-packages"
-export MISE_PYTHON_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/default-python-packages"
+if command -v mise &>/dev/null; then
+    eval "$(mise activate zsh)"
+    export MISE_NODE_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/default-npm-packages"
+    export MISE_PYTHON_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/default-python-packages"
+fi
 
 ## google-cloud-sdk
 source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
-## terraform
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
 ## azure-cli
 source $(brew --prefix)/etc/bash_completion.d/az
 
