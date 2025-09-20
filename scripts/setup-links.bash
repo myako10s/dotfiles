@@ -21,6 +21,7 @@ mkdir -p \
 
 ln -snfv "$DOTFILES/config/"* "$XDG_CONFIG_HOME"
 ln -snfv "$XDG_CONFIG_HOME/zsh/.zshenv" "$HOME/.zshenv"
+ln -snfv "$XDG_CONFIG_HOME/zsh/.zprofile" "$HOME/.zprofile"
 ln -snfv "$XDG_CONFIG_HOME/zsh/.zshrc" "$HOME/.zshrc"
 ln -snfv "$XDG_CONFIG_HOME/editorconfig/.editorconfig" "$HOME/.editorconfig"
 mkdir -p "$HOME/.minikube/config"
