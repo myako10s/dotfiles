@@ -6,8 +6,7 @@ set -eu
 # shellcheck source=./scripts/common.bash
 source "$(dirname "$0")/common.bash"
 
-# /bin/bash "$SCRIPTS/setup-apt.bash"
+/bin/bash "$SCRIPTS/setup-apt.bash"
 /bin/bash "$SCRIPTS/setup-homebrew.bash"
 /bin/bash "$SCRIPTS/setup-links.bash"
 /bin/bash "$SCRIPTS/setup-mac.bash"
-# /bin/bash "$SCRIPTS/setup-mise.bash"
