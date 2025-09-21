@@ -52,20 +52,62 @@ profiles = ["lazy"]
 github = 'zsh-users/zsh-syntax-highlighting'
 profiles = ["lazy"]
 
-[plugins.terraform]
+[plugins.mise]
 inline = """
-if [ -x "$HOME/.local/share/mise/shims/terraform" ]; then
-  complete -o nospace -C "$HOME/.local/share/mise/shims/terraform" terraform
+if command -v mise &>/dev/null; then
+    eval "$(mise activate zsh)"
+    export MISE_NODE_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/default-npm-packages"
+    export MISE_PYTHON_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/default-python-packages"
 fi
 """
 profiles = ["lazy"]
 
-# local
 [plugins.compinit]
 inline = """
 autoload -Uz compinit
-zsh-defer -a -t0.01 compinit -d "$XDG_STATE_HOME/zcompdump"
 autoload -U bashcompinit
-bashcompinit
+zsh-defer -a -t0.01 compinit -d "$XDG_STATE_HOME/zcompdump"
+zsh-defer -a -t0.01 bashcompinit
+"""
+profiles = ["lazy"]
+
+[plugins.terraform]
+inline = """
+if [ -x "$HOME/.local/share/mise/shims/terraform" ]; then
+    zsh-defer -a -t0.02 complete -o nospace -C "$XDG_DATA_HOME/mise/shims/terraform" terraform
+fi
+"""
+profiles = ["lazy"]
+
+[plugins.aws-cli]
+inline = """
+if [ -x "$(which aws_completer 2>/dev/null || true)" ]; then
+    zsh-defer -a -t0.02 complete -C "$(which aws_completer)" aws
+fi
+"""
+profiles = ["lazy"]
+
+[plugins.azure-cli]
+inline = """
+if [ -n "$(mise where azure-cli 2>/dev/null || true)" ]; then
+    zsh-defer -a -t0.02 eval "$($(mise where azure-cli)/bin/venv/bin/register-python-argcomplete az)"
+fi
+"""
+profiles = ["lazy"]
+
+[plugins.gcloud]
+inline = """
+if [ -n "$(mise where gcloud 2>/dev/null || true)" ]; then
+    source "$(mise where gcloud)/path.zsh.inc"
+    # TODO: Commented out due to issues with crashing other completions
+    # zsh-defer -a -t5.0 source "$(mise where gcloud)/completion.zsh.inc"
+fi
+
+# workaround
+gcloud::enablecompletion() {
+    if [ -n "$(mise where gcloud 2>/dev/null || true)" ]; then
+        source "$(mise where gcloud)/completion.zsh.inc"
+    fi
+}
 """
 profiles = ["lazy"]

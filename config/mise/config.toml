@@ -1,6 +1,16 @@
+[settings]
+# experimental = true
+disable_backends = ["asdf"]
+
 [tools]
+aws-cli = "latest"
+azure-cli = "latest"
 firebase = "latest"
+gcloud = "latest"
 gemini-cli = "latest"
 node = "22"
+"npm:aws-cdk" = "latest"
 terraform = "latest"
+
+# required by mise autocompletion
 usage = "latest"

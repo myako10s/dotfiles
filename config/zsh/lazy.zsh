@@ -41,19 +41,9 @@ zstyle ':completion:*' ignore-parents parent pwd ..
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
-## mise
-if command -v mise &>/dev/null; then
-    eval "$(mise activate zsh)"
-    export MISE_NODE_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/default-npm-packages"
-    export MISE_PYTHON_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/default-python-packages"
-fi
-
 ## google-cloud-sdk
-source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-
-## azure-cli
-source $(brew --prefix)/etc/bash_completion.d/az
+# source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+# source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
 ## set DOCKER_HOST if lima is running
 [ -f "$HOME/.docker-host-env" ] && source "$HOME/.docker-host-env"
@@ -61,13 +51,13 @@ source $(brew --prefix)/etc/bash_completion.d/az
 ## kiro
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
-### less ###
+## less
 export LESSHISTFILE='-'
 
-### Node.js ###
+## Node.js
 export NODE_REPL_HISTORY="$XDG_STATE_HOME/node_history"
 
-### npm ###
+## npm
 export NPM_CONFIG_DIR="$XDG_CONFIG_HOME/npm"
 export NPM_DATA_DIR="$XDG_DATA_HOME/npm"
 export NPM_CACHE_DIR="$XDG_CACHE_HOME/npm"
