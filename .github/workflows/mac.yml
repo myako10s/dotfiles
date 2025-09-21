@@ -2,6 +2,9 @@ name: macOS
 
 on: [push, workflow_dispatch]
 
+env:
+  MISE_GITHUB_TOKEN: ${{ secrets.MISE_GITHUB_TOKEN }}
+
 jobs:
   macOS:
     name: macOS
