@@ -9,5 +9,7 @@ jobs:
 
     steps:
       - name: Setup
+        env:
+          GITHUB_TOKEN: ${{ secrets.MISE_GITHUB_TOKEN }}
         run: |
           DEBUG=1 /bin/bash -c "$(curl -fsSL https://myako10s.github.io/dotfiles/install.sh)"
