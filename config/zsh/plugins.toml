@@ -111,3 +111,10 @@ gcloud::enablecompletion() {
 }
 """
 profiles = ["lazy"]
+
+[plugins.local]
+inline = """
+# Unset source function
+unfunction source &>/dev/null
+"""
+profiles = ["lazy"]
