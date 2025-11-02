@@ -1,3 +1,14 @@
+## self-compile
+{
+  local src real zwc
+  src=${(%):-%N}
+  real=$(realpath "$src")
+  zwc="${real}.zwc"
+  if [[ -f "$real" && (! -f "$zwc" || "$real" -nt "$zwc") ]]; then
+    zcompile "$real" && touch "$zwc"
+  fi
+} always { true }
+
 ## path
 typeset -U path PATH
 typeset -U fpath FPATH
