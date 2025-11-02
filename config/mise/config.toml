@@ -3,12 +3,9 @@
 disable_backends = ["asdf"]
 
 [tools]
-aws-cli = "latest"
-azure-cli = "latest"
 firebase = "latest"
-gcloud = "latest"
 gemini-cli = "latest"
-node = "22"
+node = ["lts", "latest"]
 "npm:aws-cdk" = "latest"
 terraform = "latest"
 
