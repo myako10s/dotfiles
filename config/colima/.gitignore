@@ -1,5 +1,8 @@
 # profile settings ONLY
+!.gitignore
 **
 !*/
 !*/colima.yaml
-!.gitignore
+_lima/
+_store/
+_templates/
