@@ -45,9 +45,6 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 # source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 # source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
-## set DOCKER_HOST if lima is running
-[ -f "$HOME/.docker-host-env" ] && source "$HOME/.docker-host-env"
-
 ## kiro
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
