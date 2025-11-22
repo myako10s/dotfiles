@@ -79,8 +79,20 @@ fi
 """
 profiles = ["lazy"]
 
-[plugins.local]
+[plugins.finalize]
 inline = """
+# disable autocorrect in kiro and vscode terminal
+autoload -Uz add-zsh-hook
+disable_correction_if_needed() {
+  if [[ "$TERM_PROGRAM" == "kiro" || "$TERM_PROGRAM" == "vscode" ]]; then
+    setopt nocorrect
+    # disable this hook after first run
+    add-zsh-hook -d precmd disable_correction_if_needed
+    unfunction disable_correction_if_needed
+  fi
+}
+add-zsh-hook -Uz precmd disable_correction_if_needed
+
 # Unset source function
 unfunction source &>/dev/null
 """
