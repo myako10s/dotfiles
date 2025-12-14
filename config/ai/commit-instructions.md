@@ -1,73 +1,21 @@
-# コミットメッセージ作成ガイド
+# Commit Message Rules (Conventional Commits v1.0.0)
 
-本ガイドは [Conventional Commits 1.0.0](https://www.conventionalcommits.org/ja/v1.0.0/) に準拠しています。
+必ず [Conventional Commits 1.0.0](https://www.conventionalcommits.org/ja/v1.0.0/) に従う。
 
-## コミットメッセージの基本構造
+## 形式
+<type>[optional scope]: <description>
 
-```text
-<type>[scope]: <description>
+- description は日本語、命令形、簡潔に。末尾に句点「。」は付けない。絵文字は禁止。
+- 1行目（subject）は必須。本文やフッターは必要なときだけ。
+- scope は変更範囲が明確なときのみ付ける（例: api, ui, infra, docs, deps）
 
-[本文(任意)]
+## type（許可）
+feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert
 
-[フッター(任意)]
-```
+## Breaking change
+破壊的変更は `type(scope)!:` を使う。必要に応じて footer に `BREAKING CHANGE:` を付ける。
 
-### 例
-
-```text
-feat: ユーザー検索機能を追加
-
-ユーザー名とメールアドレスで検索できるようにした
-```
-
-## Type の選び方
-
-コミット内容に応じて適切な Type を選択してください。
-
-| Type         | 用途                           | 例                                             |
-| ------------ | ------------------------------ | ---------------------------------------------- |
-| **feat**     | 新機能の追加                   | `feat: ログイン機能を追加`                     |
-| **fix**      | バグ修正                       | `fix: ログアウト時のエラーを修正`              |
-| **docs**     | ドキュメントの変更のみ         | `docs: READMEのセットアップ手順を更新`         |
-| **style**    | コードの意味に影響しない変更   | `style: インデントを修正`                      |
-| **refactor** | リファクタリング               | `refactor: ユーザー取得処理を関数化`           |
-| **perf**     | パフォーマンス改善             | `perf: データベースクエリを最適化`             |
-| **test**     | テストの追加・修正             | `test: ログイン機能のテストを追加`             |
-| **build**    | ビルドシステムや依存関係の変更 | `build: TypeScriptのバージョンを更新`          |
-| **ci**       | CI 設定の変更                  | `ci: GitHub Actionsのワークフローを修正`       |
-| **chore**    | その他の変更                   | `chore: 未使用のファイルを削除`                |
-| **revert**   | コミットの取り消し             | `revert: "feat: ログイン機能を追加"を取り消し` |
-
-## Scope(任意)
-
-変更の範囲を明示する場合は、Type の後に括弧で指定します。
-
-```text
-feat(auth): パスワードリセット機能を追加
-fix(api): ユーザー削除のエンドポイントを修正
-```
-
-## 破壊的変更
-
-既存の機能に影響する変更の場合は、以下のいずれかの方法で明示します。
-
-### 方法 1: Type に `!` を付ける
-
-```text
-feat!: APIのレスポンス形式を変更
-```
-
-### 方法 2: フッターに記載
-
-```text
-feat: APIのレスポンス形式を変更
-
-BREAKING CHANGE: レスポンスの構造が変わったため、クライアント側の修正が必要
-```
-
-## 記述ルール
-
-- **言語**: 日本語で記述する
-- **絵文字**: 使用しない
-- **句点**: ヘッダー(1 行目)の末尾に句点(。)を付けない
-- **文体**: 簡潔に記述する(「〜を追加」「〜を修正」など)
+## 例
+- feat(ui): ログイン画面にパスワード可視化を追加
+- fix(api): ユーザー取得で null を返すケースを修正
+- chore(deps): axios を 1.7.0 に更新
