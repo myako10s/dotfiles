@@ -55,7 +55,7 @@ export LESSHISTFILE='-'
 export NODE_REPL_HISTORY="$XDG_STATE_HOME/node_history"
 
 ## npm
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 
 ## Python
 # export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
