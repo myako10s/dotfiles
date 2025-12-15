@@ -2,10 +2,13 @@
 # experimental = true
 disable_backends = ["asdf"]
 
+[settings.npm]
+package_manager = "pnpm"
+
 [tools]
 firebase = "latest"
 gemini-cli = "latest"
-node = ["24", "22"]
+node = { version = "24", postinstall = "corepack enable && corepack prepare pnpm@latest --activate" }
 "npm:aws-cdk" = "latest"
 "npm:forever" = "latest"
 terraform = "latest"
