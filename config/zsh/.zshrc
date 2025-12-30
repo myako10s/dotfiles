@@ -46,7 +46,7 @@ setopt nobeep
 setopt nolistbeep
 setopt correct
 
-## source
+## zcompile-aware source
 source() {
     local input="$1"
     local cache="$input.zwc"
@@ -56,6 +56,13 @@ source() {
     \builtin source "$@"
 }
 
+## command existence checker
+has() {
+  local cmd
+  for cmd in "$@"; do
+    (( $+commands[$cmd] )) || return 1
+  done
+}
 
 ## sheldon
 sheldon::load() {
