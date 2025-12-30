@@ -149,7 +149,7 @@ if has ghq fzf bat; then
     }
 
     zle -N fzf-ghq-widget
-    bindkey '^[g' fzf-ghq-widget
+    bindkey '^]' fzf-ghq-widget
 fi
 
 
