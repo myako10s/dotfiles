@@ -7,8 +7,6 @@ alias lla='ls -la'
 alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 alias python="python3"
 alias pip="pip3"
-alias g="git"
-alias k="kubectl"
 
 case "$OSTYPE" in
     linux*)
@@ -33,6 +31,26 @@ case "$OSTYPE" in
         alias p='pbpaste'
     ;;
 esac
+
+## alias-like abbreviations (expand on space)
+expand-abbr() {
+    local word="${LBUFFER##* }"
+    case "$word" in
+        g)      LBUFFER="${LBUFFER%$word}git" ;;
+        ga)     LBUFFER="${LBUFFER%$word}git add" ;;
+        gc)     LBUFFER="${LBUFFER%$word}git commit" ;;
+        gs)     LBUFFER="${LBUFFER%$word}git status" ;;
+        gco)    LBUFFER="${LBUFFER%$word}git checkout" ;;
+        gcb)    LBUFFER="${LBUFFER%$word}git checkout -b" ;;
+        k)      LBUFFER="${LBUFFER%$word}kubectl" ;;
+    esac
+}
+expand-abbr-or-space() {
+    expand-abbr
+    zle magic-space
+}
+zle -N expand-abbr-or-space
+bindkey ' ' expand-abbr-or-space
 
 ## completion style
 zstyle ':completion:*:commands' rehash 1
