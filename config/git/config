@@ -3,3 +3,6 @@
 	email = 19725261+myako10s@users.noreply.github.com
 [credential]
 	helper = osxkeychain
+[ghq]
+	user = myako10s
+	root = ~/repos

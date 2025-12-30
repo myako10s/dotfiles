@@ -91,8 +91,66 @@ export MYSQL_HISTFILE="$XDG_STATE_HOME/mysql_history"
 export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
 
 ## FZF
-export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query"'
+export FZF_DEFAULT_OPTS='--layout=reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query"'
 export FZF_DEFAULT_COMMAND='fd --hidden --color=always'
+has fzf && \builtin source <(fzf --zsh)
+
+## ghq widgets
+if has ghq fzf bat; then
+    fzf-ghq-widget() {
+        local root
+        local selected
+        local action
+        local repo_path
+
+        root="$(ghq root)" || return
+
+        selected="$(
+            ghq list | fzf \
+                --height 50% \
+                --layout=reverse \
+                --border \
+                --expect=alt-c,alt-b \
+                --prompt='ghq> ' \
+                --preview-window='right,60%,wrap' \
+                --preview="
+                    dir='$root/{}'
+                    readme=
+                    set -- \"\$dir\"/README.*
+                    [ -e \"\$1\" ] && readme=\"\$1\"
+                    if [ -n \"\$readme\" ]; then
+                        bat --style=numbers --color=always --line-range :80 \"\$readme\"
+                    else
+                        ls -la \"\$dir\"
+                    fi
+                "
+        )" || return
+
+        action="$(printf '%s\n' "$selected" | sed -n '1p')"
+        selected="$(printf '%s\n' "$selected" | sed -n '2p')"
+
+        [[ -z "$selected" ]] && return
+
+        repo_path="$root/$selected"
+
+        case "$action" in
+            alt-c)
+                has code && code "$repo_path"
+                ;;
+            alt-b)
+                has gh && (cd "$repo_path" && gh repo view --web)
+                ;;
+            *)
+                cd "$repo_path"
+                ;;
+        esac
+
+        zle reset-prompt
+    }
+
+    zle -N fzf-ghq-widget
+    bindkey '^[g' fzf-ghq-widget
+fi
 
 
 ## dotfiles management
