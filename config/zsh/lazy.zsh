@@ -106,11 +106,11 @@ dotfiles::link() {
 }
 # update package list
 dotfiles::update() {
-    if command -v apt-mark &>/dev/null; then
+    if has apt-mark; then
         # Ubuntu / Debian
         apt-mark showmanual > "$DOTFILES/config/apt/packages.txt"
         echo "Saved package list to $DOTFILES/config/apt/packages.txt"
-    elif command -v brew &>/dev/null; then
+    elif has brew; then
         # macOS
         brew bundle dump --force --global
         echo "Saved Brewfile to $DOTFILES/config/homebrew/Brewfile"
