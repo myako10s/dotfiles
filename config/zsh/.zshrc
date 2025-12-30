@@ -13,6 +13,7 @@
 typeset -U path PATH
 typeset -U fpath FPATH
 path=(
+  "$HOME/.antigravity/antigravity/bin"(N-/)
   "$HOME/.local/bin"(N-/)
   "$GOPATH/bin"(N-/)
   "$path[@]"
