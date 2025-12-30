@@ -1,0 +1,28 @@
+# theme
+theme = tokyonight
+
+# font
+font-size = 12
+font-thicken = true
+
+# background transparency
+background-opacity = 0.85
+background-blur-radius = 20
+
+# dim inactive panes
+unfocused-split-opacity = 0.7
+
+# cursor & mouse
+cursor-opacity = 0.8
+cursor-color = ffffff
+mouse-hide-while-typing = true
+
+# window
+window-padding-x = 4
+window-padding-y = 4
+window-padding-balance = true
+window-save-state = always
+
+# macOS settings
+macos-titlebar-style = tabs
+macos-option-as-alt = true
