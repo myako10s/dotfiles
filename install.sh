@@ -3,7 +3,7 @@
 
 [[ "${DEBUG:-}" == "1" ]] && export DEBUG=1
 
-INSTALL_DIR="${INSTALL_DIR:-$HOME/.dotfiles.git}"
+INSTALL_DIR="${INSTALL_DIR:-$HOME/repos/github.com/myako10s/dotfiles}"
 
 # bootstrap: ensure git is available
 if ! command -v git >/dev/null 2>&1; then

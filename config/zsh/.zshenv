@@ -14,4 +14,4 @@ export GOPATH="$XDG_DATA_HOME/go"
 export SHELDON_CONFIG_DIR="$ZDOTDIR"
 
 ## dotfiles
-export DOTFILES="$HOME/.dotfiles.git"
+export DOTFILES="$HOME/repos/github.com/myako10s/dotfiles"
