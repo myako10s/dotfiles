@@ -1,21 +1,27 @@
 # Commit Message Rules (Conventional Commits v1.0.0)
 
-必ず [Conventional Commits 1.0.0](https://www.conventionalcommits.org/ja/v1.0.0/) に従う。
+Follow the [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 
-## 形式
+## Format
+
 <type>[optional scope]: <description>
 
-- description は日本語、命令形、簡潔に。末尾に句点「。」は付けない。絵文字は禁止。
-- 1行目（subject）は必須。本文やフッターは必要なときだけ。
-- scope は変更範囲が明確なときのみ付ける（例: api, ui, infra, docs, deps）
+- Write the description in English and keep it concise. Use lowercase unless a proper noun is required. Do not end with a period. Do not use emoji.
+- Keep the description as short as possible; aim for 50 characters or fewer.
+- Do not mention file names, directory names, or list changed files in the description, unless the file itself is the subject of the change.
+- Prefer the user-visible outcome or intent of the change over implementation details.
+- The commit subject is required. Add a body or footer only when necessary.
+- Add a scope only when the affected area is clear, such as api, ui, infra, docs, or deps.
 
-## type（許可）
-feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert
+## Allowed Types
 
-## Breaking change
-破壊的変更は `type(scope)!:` を使う。必要に応じて footer に `BREAKING CHANGE:` を付ける。
+`feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`
 
-## 例
-- feat(ui): ログイン画面にパスワード可視化を追加
-- fix(api): ユーザー取得で null を返すケースを修正
-- chore(deps): axios を 1.7.0 に更新
+For breaking changes, use `type!:` or `type(scope)!:`. Add a `BREAKING CHANGE:` footer when additional explanation is necessary.
+
+## Examples
+
+- feat(ui): enable password visibility toggle
+- fix(api): prevent null response for missing user
+- chore(deps): update axios to 1.7.0
+- refactor: reduce configuration complexity
