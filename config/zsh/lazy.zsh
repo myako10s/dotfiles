@@ -1,6 +1,9 @@
 
 ## alias
-alias ls="ls -F --color=auto" # for GNU ls
+case "$OSTYPE" in
+  darwin*) alias ls='ls -FG' ;;
+  *)       alias ls='ls -F --color=auto' ;;
+esac
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -la'
@@ -20,10 +23,6 @@ case "$OSTYPE" in
     ;;
     darwin*)
         path=(
-            "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"(N-/)
-            "$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin"(N-/)
-            "$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin"(N-/)
-            "$HOMEBREW_PREFIX/opt/grep/libexec/gnubin"(N-/)
             "$HOMEBREW_PREFIX/opt/libpq/bin"(N-/)
             "$path[@]"
         )
