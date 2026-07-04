@@ -70,8 +70,6 @@ cask "android-studio"
 cask "bruno"
 # Remotely access another computer through the Google Chrome browser
 cask "chrome-remote-desktop-host"
-# Terminal-based AI coding assistant
-cask "claude-code"
 # Ghostty-based terminal with vertical tabs and notifications for AI coding agents
 cask "cmux"
 # OpenAI's coding agent that runs in your terminal
