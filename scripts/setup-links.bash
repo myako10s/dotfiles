@@ -26,3 +26,13 @@ ln -snfv "$XDG_CONFIG_HOME/zsh/.zshrc" "$HOME/.zshrc"
 ln -snfv "$XDG_CONFIG_HOME/editorconfig/.editorconfig" "$HOME/.editorconfig"
 mkdir -p "$HOME/.minikube/config"
 ln -snfv "$XDG_CONFIG_HOME/minikube/config.json" "$HOME/.minikube/config/config.json"
+
+# Claude Code: link only the safe, versioned assets into ~/.claude.
+# Runtime state and secrets (~/.claude.json, credentials, projects/, history,
+# sessions, cache, ...) are intentionally left unmanaged and outside the repo.
+mkdir -p "$HOME/.claude"
+ln -snfv "$DOTFILES/config/claude/settings.json" "$HOME/.claude/settings.json"
+ln -snfv "$DOTFILES/config/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+ln -snfv "$DOTFILES/config/claude/commands" "$HOME/.claude/commands"
+ln -snfv "$DOTFILES/config/claude/agents" "$HOME/.claude/agents"
+ln -snfv "$DOTFILES/config/claude/skills" "$HOME/.claude/skills"

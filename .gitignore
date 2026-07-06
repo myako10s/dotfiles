@@ -11,3 +11,20 @@ local.*
 *.zwc
 .zcomp*
 .zsh_sessions
+
+## Claude Code — never commit secrets or runtime state that may land in config/claude
+config/claude/.credentials.json
+config/claude/settings.local.json
+config/claude/history.jsonl
+config/claude/.claude.json
+config/claude/projects/
+config/claude/sessions/
+config/claude/session-env/
+config/claude/shell-snapshots/
+config/claude/todos/
+config/claude/statsig/
+config/claude/file-history/
+config/claude/backups/
+config/claude/cache/
+config/claude/debug/
+config/claude/downloads/
