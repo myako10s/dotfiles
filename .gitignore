@@ -28,3 +28,5 @@ config/claude/backups/
 config/claude/cache/
 config/claude/debug/
 config/claude/downloads/
+# skills/ is unmanaged: marketplace-installed skills would otherwise land here
+config/claude/skills/
