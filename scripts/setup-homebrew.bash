@@ -25,4 +25,8 @@ else
     brew bundle install --file "${DOTFILES}/config/homebrew/Brewfile" --no-upgrade
 fi
 
+if brew list | grep -q "google-chrome"; then
+    brew pin --cask google-chrome
+    echo "Pinned Google Chrome to prevent updates by Homebrew."
+fi
 true
