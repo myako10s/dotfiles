@@ -11,26 +11,6 @@ alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 alias python="python3"
 alias pip="pip3"
 
-case "$OSTYPE" in
-    linux*)
-        if (( ${+commands[win32yank.exe]} )); then
-            alias pp='win32yank.exe -i'
-            alias p='win32yank.exe -o'
-        elif (( ${+commands[xsel]} )); then
-            alias pp='xsel -bi'
-            alias p='xsel -b'
-        fi
-    ;;
-    darwin*)
-        path=(
-            "$HOMEBREW_PREFIX/opt/libpq/bin"(N-/)
-            "$path[@]"
-        )
-        alias y='pbcopy'
-        alias p='pbpaste'
-    ;;
-esac
-
 ## alias-like abbreviations (expand on space)
 expand-abbr() {
     local word="${LBUFFER##* }"
