@@ -18,6 +18,8 @@ brew "docker-credential-helper"
 brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# Play, record, convert, and stream many audio and video codecs
+brew "ffmpeg-full", link: true
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GitHub command-line tool
@@ -34,6 +36,12 @@ brew "go"
 brew "python@3.12"
 # Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
+# Agent multiplexer that lives in your terminal
+brew "herdr"
+# C library for reading, creating, and modifying zip archives
+brew "libzip"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick-full", link: true
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Run local Kubernetes cluster in Docker
@@ -42,28 +50,34 @@ brew "kind"
 brew "libpq"
 # General purpose TCP-IP emulator
 brew "libslirp"
-# C library for reading, creating, and modifying zip archives
-brew "libzip"
 # Mac App Store command-line interface
 brew "mas"
 # Run a Kubernetes cluster locally
 brew "minikube"
 # Open source relational database management system
 brew "mysql-client"
-# Python package management tool
-brew "poetry"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.13"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
 # Generic machine emulator and virtualizer
 brew "qemu"
 # Rsync for cloud storage
 brew "rclone"
+# SVG rendering tool and library
+brew "resvg"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# 7-Zip is a file archiver with a high compression ratio
+brew "sevenzip"
 # Fast, configurable, shell plugin manager
 brew "sheldon"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # Android SDK component
 cask "android-platform-tools"
 # Open source IDE for exploring and testing APIs
@@ -80,6 +94,7 @@ cask "db-browser-for-sqlite"
 cask "discord"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
+cask "font-symbols-only-nerd-font"
 # Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli"
 # Terminal emulator that uses platform-native UI and GPU acceleration
@@ -128,6 +143,7 @@ mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "RunCatNeo", id: 6757801838
 mas "Sleep Control Center", id: 946798523
 mas "Xcode", id: 497799835
 vscode "anthropic.claude-code"
