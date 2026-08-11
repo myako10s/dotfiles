@@ -1,4 +1,5 @@
 # Global instructions
+@~/.config/ai/AGENTS.md
 
 ## Git commits
 
