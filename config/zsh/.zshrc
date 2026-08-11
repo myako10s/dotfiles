@@ -16,6 +16,7 @@ path=(
   "$HOME/.antigravity/antigravity/bin"(N-/)
   "$HOME/.local/bin"(N-/)
   "$GOPATH/bin"(N-/)
+  "$HOMEBREW_PREFIX/opt/libpq/bin"(N-/)
   "$path[@]"
 )
 fpath=(
